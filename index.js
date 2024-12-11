@@ -6,6 +6,7 @@ var pokemonTemp;
 map.on('click', function (e) {
     var coord = e.latlng;
     var lat = coord.lat;
+
     var lng = coord.lng;
     const coordMarker = [lat, lng];
     console.log(pokemonTemp)
@@ -16,9 +17,6 @@ map.on('click', function (e) {
             iconSize: [50, 50]
         })
     }).addTo(map).openPopup();
-
-
-
 });
 
 
@@ -119,11 +117,10 @@ function afficherLaCarte() {
 
     // Ajouter le fond de carte
     const Stadia_AlidadeSatellite = L.tileLayer(
-        'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.{ext}', {
+        'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 0,
         maxZoom: 20,
-        attribution: '&copy; CNES, Distribution Airbus DS, © Airbus DS, © PlanetObserver (Contains Copernicus Data) | &copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        ext: 'jpg'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     });
     Stadia_AlidadeSatellite.addTo(map);
 
